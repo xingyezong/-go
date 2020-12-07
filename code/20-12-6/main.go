@@ -5,12 +5,12 @@ import "fmt"
 func twoSum(nums []int, target int) []int {
 	hsmap := map[int]int{}
 	for i, v := range nums {
-		hsmap[v] = i
+
 		if p,ok := hsmap[target - v]; ok{
 			fmt.Println(ok)
 			return []int{i,p}
 		}
-
+		hsmap[v] = i // 要放在比较后，不然若target恰好等于首位数字的两倍时候会出错
 	}
 	return nil
 }
